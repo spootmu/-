@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MainTabbarControl.h"
+#import "NewFeaturesVC.h"
 @interface AppDelegate ()
 
 @end
@@ -17,8 +18,40 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor=[UIColor whiteColor];
+    MainTabbarControl *mainTab=[[MainTabbarControl alloc]init];
+    NewFeaturesVC *nvc=[[NewFeaturesVC alloc]init];
+    
+    //用户偏好设置
+    //kCFBundleVersionKey等同于@"CFBundleVersion"
+    NSString *key=(__bridge_transfer NSString *)kCFBundleVersionKey;
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSString *localVersion=[defaults objectForKey:key];
+    
+    NSDictionary *dicPlist=[NSBundle mainBundle].infoDictionary;
+    NSString *currentVersion=dicPlist[key];
+//    Log(@"%@",dicPlist[@"CFBundleVersion"]);
+    
+    //字符串对比如果是降序状态,要么第一次，要么升级了
+    if([currentVersion compare:localVersion]==NSOrderedDescending)
+//    if(YES)
+    {
+        [defaults setObject:currentVersion forKey:key];
+        [defaults synchronize];
+        self.window.rootViewController=nvc;
+    }
+    else
+    {
+        self.window.rootViewController=mainTab;
+    }
+    
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -1,0 +1,22 @@
+//
+//  Prefix.pch
+//  新浪微博
+//
+//  Created by apple on 15/8/13.
+//  Copyright (c) 2015年 spoot. All rights reserved.
+//
+
+
+#ifdef __OBJC__
+#import<UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UIImage+Extension.h"
+    #ifdef DEBUG
+        #define Log(...) NSLog(__VA_ARGS__)
+    #else
+        #define Log(...)
+    #endif
+
+#endif
