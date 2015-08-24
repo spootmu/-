@@ -8,6 +8,8 @@
 
 #import "NewFeaturesVC.h"
 #import "MainTabbarControl.h"
+#import "OAuthVC.h"
+#import "OAuthData.h"
 @interface NewFeaturesVC ()<UIScrollViewDelegate>
 @property(nonatomic,weak)UIScrollView *sv;
 @property(nonatomic,strong)NSMutableArray *imgList;
@@ -116,8 +118,17 @@
 }
 -(void)goIndex
 {
-    MainTabbarControl *mainTab=[[MainTabbarControl alloc]init];
-    [UIApplication sharedApplication].keyWindow.rootViewController=mainTab;
+    NSString *path=AccountFile;
+    OAuthData *account= [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if(account)
+    {
+        [UIApplication sharedApplication].keyWindow.rootViewController=[[MainTabbarControl alloc]init];
+    }
+    else{
+        OAuthVC *oauth=[[OAuthVC alloc]init];
+        [UIApplication sharedApplication].keyWindow.rootViewController=oauth;
+    }
+    
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

@@ -9,27 +9,14 @@
 #import "HomeTableViewController.h"
 #import "TitleButton.h"
 #import "PopView.h"
+#import "Tools.h"
 @interface HomeTableViewController ()<PopViewDelegate>
 @property(nonatomic,weak) TitleButton *btnTitle;
-//@property(nonatomic,strong) UIImageView *imgPop;
+@property(nonatomic,strong) NSArray *WeiboData;
 @end
 
 @implementation HomeTableViewController
 
-//-(UIImageView *)imgPop
-//{
-//    if(!_imgPop)
-//    {
-//        UIImageView *imgPop=[[UIImageView alloc]init];
-//        imgPop.image=[UIImage resizableImageWithName:@"popover_background"];
-//        imgPop.w=200;
-//        imgPop.h=200;
-//        imgPop.cx=self.view.cx;
-//        imgPop.y=50;
-//        _imgPop=imgPop;
-//    }
-//    return _imgPop;
-//}
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,8 +33,28 @@
     
     [self setupBarButton];
     [self setupTitleButton];
+    [self loadWeiBoData];
 }
-
+-(void)loadWeiBoData
+{
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    parameters[@"access_token"]=[Tools ReadAccount].access_token;
+//    parameters[@"trim_user"]=@(1);
+    parameters[@"count"]=@(100);
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        Log(@"%@",responseObject[@"statuses"]);
+        self.WeiboData=responseObject[@"statuses"];
+        
+//        for (NSDictionary *dic in responseObject[@"statuses"]) {
+//            WeiBoData *wdata=
+//        }
+        
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        Log(@"%@",error);
+    }];
+}
 
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -109,7 +116,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+    return self.WeiboData.count;
 }
 
 
@@ -118,10 +125,16 @@
     
     if(!cell)
     {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"homeCell"];
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"homeCell"];
     }
     
-    cell.textLabel.text=[NSString stringWithFormat:@"row of %zd",indexPath.row];
+    
+//    profile_image_url
+    NSDictionary *dic=self.WeiboData[indexPath.row];
+    NSDictionary *dicUser=dic[@"user"];
+    cell.detailTextLabel.text=dic[@"text"];
+    cell.textLabel.text=dicUser[@"name"];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:dicUser[@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
     return cell;
 }
 

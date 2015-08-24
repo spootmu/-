@@ -13,10 +13,16 @@
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
 #import "UIImage+Extension.h"
+#import "MBProgressHUD+NJ.h"
+#import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
+#import "WeiBoData.h"
+#import "user.h"
     #ifdef DEBUG
         #define Log(...) NSLog(__VA_ARGS__)
     #else
         #define Log(...)
     #endif
 
+#define AccountFile [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent :@"account.data"];
 #endif

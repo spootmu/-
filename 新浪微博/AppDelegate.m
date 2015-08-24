@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "MainTabbarControl.h"
 #import "NewFeaturesVC.h"
+#import "OAuthVC.h"
+#import "Tools.h"
+#import "OAuthData.h"
 @interface AppDelegate ()
 
 @end
@@ -20,8 +23,9 @@
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor=[UIColor whiteColor];
-    MainTabbarControl *mainTab=[[MainTabbarControl alloc]init];
+//    MainTabbarControl *mainTab=[[MainTabbarControl alloc]init];
     NewFeaturesVC *nvc=[[NewFeaturesVC alloc]init];
+
     
     //用户偏好设置
     //kCFBundleVersionKey等同于@"CFBundleVersion"
@@ -43,7 +47,15 @@
     }
     else
     {
-        self.window.rootViewController=mainTab;
+        OAuthData *account= [Tools ReadAccount];
+        if(account)
+        {
+            self.window.rootViewController=[[MainTabbarControl alloc]init];
+        }
+        else{
+            OAuthVC *oauth=[[OAuthVC alloc]init];
+            self.window.rootViewController=oauth;
+        }
     }
     
     
@@ -51,7 +63,12 @@
     return YES;
 }
 
-
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    //必写
+    [[SDWebImageManager sharedManager] cancelAll];
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

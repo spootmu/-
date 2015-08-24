@@ -26,8 +26,16 @@
 		18AE60191B81CBD400373E96 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AE60181B81CBD400373E96 /* UIImage+Extension.m */; };
 		18AE601C1B81D3C100373E96 /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AE601B1B81D3C100373E96 /* PopView.m */; };
 		18AE60A21B83133A00373E96 /* NewFeaturesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AE60A11B83133A00373E96 /* NewFeaturesVC.m */; };
-		18CBDAD91B83321D00687CAC /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CBDAD81B83321D00687CAC /* Storyboard.storyboard */; };
 		18CBDADC1B847A4A00687CAC /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDADB1B847A4A00687CAC /* OAuthVC.m */; };
+		18CBDAE91B84807900687CAC /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDAE51B84807900687CAC /* MBProgressHUD+NJ.m */; };
+		18CBDAEA1B84807900687CAC /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18CBDAE61B84807900687CAC /* MBProgressHUD.bundle */; };
+		18CBDAEB1B84807900687CAC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDAE81B84807900687CAC /* MBProgressHUD.m */; };
+		18CBDB0A1B848A4D00687CAC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CBDB091B848A4D00687CAC /* Security.framework */; };
+		18CBDB0E1B86C87B00687CAC /* OAuthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDB0D1B86C87B00687CAC /* OAuthData.m */; };
+		18CBDB121B86D70C00687CAC /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDB111B86D70C00687CAC /* Tools.m */; };
+		18CBDB161B8705AA00687CAC /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDB151B8705AA00687CAC /* NSArray+Log.m */; };
+		18CBDB1A1B8AAF0400687CAC /* WeiBoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDB191B8AAF0400687CAC /* WeiBoData.m */; };
+		18CBDB1D1B8AF92900687CAC /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBDB1C1B8AF92900687CAC /* user.m */; };
 		7C236EB03B8942112F9CA042 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D237DBE1BE8425A4CE22220D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -81,9 +89,24 @@
 		18AE601B1B81D3C100373E96 /* PopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopView.m; sourceTree = "<group>"; };
 		18AE60A01B83133A00373E96 /* NewFeaturesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeaturesVC.h; sourceTree = "<group>"; };
 		18AE60A11B83133A00373E96 /* NewFeaturesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeaturesVC.m; sourceTree = "<group>"; };
-		18CBDAD81B83321D00687CAC /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		18CBDADA1B847A4A00687CAC /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthVC.h; sourceTree = "<group>"; };
 		18CBDADB1B847A4A00687CAC /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthVC.m; sourceTree = "<group>"; };
+		18CBDAE41B84807900687CAC /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		18CBDAE51B84807900687CAC /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		18CBDAE61B84807900687CAC /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		18CBDAE71B84807900687CAC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		18CBDAE81B84807900687CAC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		18CBDB091B848A4D00687CAC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		18CBDB0C1B86C87B00687CAC /* OAuthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthData.h; sourceTree = "<group>"; };
+		18CBDB0D1B86C87B00687CAC /* OAuthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthData.m; sourceTree = "<group>"; };
+		18CBDB101B86D70C00687CAC /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		18CBDB111B86D70C00687CAC /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		18CBDB141B8705AA00687CAC /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		18CBDB151B8705AA00687CAC /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		18CBDB181B8AAF0400687CAC /* WeiBoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoData.h; sourceTree = "<group>"; };
+		18CBDB191B8AAF0400687CAC /* WeiBoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoData.m; sourceTree = "<group>"; };
+		18CBDB1B1B8AF92900687CAC /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
+		18CBDB1C1B8AF92900687CAC /* user.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = user.m; sourceTree = "<group>"; };
 		30D2727C3A725AB282A44292 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7027FE3C8831843BBA8E2BC8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D237DBE1BE8425A4CE22220D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CBDB0A1B848A4D00687CAC /* Security.framework in Frameworks */,
 				7C236EB03B8942112F9CA042 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +164,7 @@
 		18AC21FB1B7B2CC70017B279 /* 新浪微博 */ = {
 			isa = PBXGroup;
 			children = (
+				18CBDAE21B847F9F00687CAC /* Lib */,
 				18AC22A41B7C7EB50017B279 /* Model */,
 				18AC22A31B7C7EB00017B279 /* View */,
 				18AC228F1B7C485D0017B279 /* Control */,
@@ -148,7 +173,6 @@
 				18AC22091B7B2CC70017B279 /* Images.xcassets */,
 				18AC220B1B7B2CC70017B279 /* LaunchScreen.xib */,
 				18AC21FC1B7B2CC70017B279 /* Supporting Files */,
-				18CBDAD81B83321D00687CAC /* Storyboard.storyboard */,
 			);
 			path = "新浪微博";
 			sourceTree = "<group>";
@@ -254,6 +278,8 @@
 		18AC22A41B7C7EB50017B279 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				18CBDB0F1B86D70100687CAC /* Tools */,
+				18CBDB0B1B86C86200687CAC /* OAuth */,
 				18AC22AE1B7C7F120017B279 /* MainTab */,
 				18AC22AC1B7C7EF50017B279 /* Setting */,
 				18AC22AB1B7C7EEF0017B279 /* Zone */,
@@ -375,9 +401,62 @@
 			name = OAuth;
 			sourceTree = "<group>";
 		};
+		18CBDAE21B847F9F00687CAC /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				18CBDB131B8705AA00687CAC /* Log */,
+				18CBDAE31B84807900687CAC /* MBProgressHUD */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		18CBDAE31B84807900687CAC /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18CBDAE41B84807900687CAC /* MBProgressHUD+NJ.h */,
+				18CBDAE51B84807900687CAC /* MBProgressHUD+NJ.m */,
+				18CBDAE61B84807900687CAC /* MBProgressHUD.bundle */,
+				18CBDAE71B84807900687CAC /* MBProgressHUD.h */,
+				18CBDAE81B84807900687CAC /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		18CBDB0B1B86C86200687CAC /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				18CBDB0C1B86C87B00687CAC /* OAuthData.h */,
+				18CBDB0D1B86C87B00687CAC /* OAuthData.m */,
+				18CBDB181B8AAF0400687CAC /* WeiBoData.h */,
+				18CBDB191B8AAF0400687CAC /* WeiBoData.m */,
+				18CBDB1B1B8AF92900687CAC /* user.h */,
+				18CBDB1C1B8AF92900687CAC /* user.m */,
+			);
+			name = OAuth;
+			sourceTree = "<group>";
+		};
+		18CBDB0F1B86D70100687CAC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				18CBDB101B86D70C00687CAC /* Tools.h */,
+				18CBDB111B86D70C00687CAC /* Tools.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		18CBDB131B8705AA00687CAC /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				18CBDB141B8705AA00687CAC /* NSArray+Log.h */,
+				18CBDB151B8705AA00687CAC /* NSArray+Log.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		921A18E446A8FC2644A84727 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18CBDB091B848A4D00687CAC /* Security.framework */,
 				D237DBE1BE8425A4CE22220D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -467,7 +546,7 @@
 			files = (
 				18AC220D1B7B2CC70017B279 /* LaunchScreen.xib in Resources */,
 				18AC220A1B7B2CC70017B279 /* Images.xcassets in Resources */,
-				18CBDAD91B83321D00687CAC /* Storyboard.storyboard in Resources */,
+				18CBDAEA1B84807900687CAC /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,19 +597,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CBDB121B86D70C00687CAC /* Tools.m in Sources */,
 				18AC22B81B7C8C970017B279 /* UIView+Extension.m in Sources */,
 				18AE60191B81CBD400373E96 /* UIImage+Extension.m in Sources */,
 				18AC22B41B7C86840017B279 /* IWTabBar.m in Sources */,
 				18AC228D1B7C483D0017B279 /* MainTabbarControl.m in Sources */,
 				18AC22BC1B7C96890017B279 /* IWTabBarButton.m in Sources */,
+				18CBDB1A1B8AAF0400687CAC /* WeiBoData.m in Sources */,
 				18AC22971B7C7D110017B279 /* ZoneTableViewController.m in Sources */,
 				18AC22941B7C7CEE0017B279 /* MsgTableViewController.m in Sources */,
+				18CBDAEB1B84807900687CAC /* MBProgressHUD.m in Sources */,
+				18CBDAE91B84807900687CAC /* MBProgressHUD+NJ.m in Sources */,
 				18CBDADC1B847A4A00687CAC /* OAuthVC.m in Sources */,
 				18AC229D1B7C7D480017B279 /* HomeTableViewController.m in Sources */,
 				185827311B81926000700907 /* TitleButton.m in Sources */,
 				18AE601C1B81D3C100373E96 /* PopView.m in Sources */,
+				18CBDB0E1B86C87B00687CAC /* OAuthData.m in Sources */,
+				18CBDB1D1B8AF92900687CAC /* user.m in Sources */,
 				18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */,
 				18AC229A1B7C7D1C0017B279 /* SettingTableViewController.m in Sources */,
+				18CBDB161B8705AA00687CAC /* NSArray+Log.m in Sources */,
 				18AE60A21B83133A00373E96 /* NewFeaturesVC.m in Sources */,
 				1858272E1B818DA600700907 /* UIBarButtonItem+Extension.m in Sources */,
 				185827281B8170CA00700907 /* IWNavBar.m in Sources */,
