@@ -46,6 +46,4 @@
 @property (nonatomic,copy) NSString *idstr;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *profile_image_url;
--(instancetype)initWithDic:(NSDictionary *)dic;
-+(instancetype)userWithDic:(NSDictionary*)dic;
 @end

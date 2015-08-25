@@ -12,7 +12,7 @@
 #import "Tools.h"
 @interface HomeTableViewController ()<PopViewDelegate>
 @property(nonatomic,weak) TitleButton *btnTitle;
-@property(nonatomic,strong) NSArray *WeiboData;
+@property(nonatomic,strong) NSMutableArray *WeiboData;
 @end
 
 @implementation HomeTableViewController
@@ -34,22 +34,69 @@
     [self setupBarButton];
     [self setupTitleButton];
     [self loadWeiBoData];
+    
+    [self setupRefresh];
+}
+
+
+-(void)setupRefresh
+{
+    UIRefreshControl *refresh=[[UIRefreshControl alloc]init];
+    [refresh addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview: refresh];
+    
+}
+-(void)refreshData:(UIRefreshControl*)refresh
+{
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    WeiBoData *firstData=[self.WeiboData firstObject];
+    parameters[@"access_token"]=[Tools ReadAccount].access_token;
+    parameters[@"since_id"]=firstData.idstr;
+    parameters[@"count"]=@(30);
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSMutableArray *arrTemp=[NSMutableArray array];
+        [arrTemp addObjectsFromArray:[WeiBoData objectArrayWithKeyValuesArray:responseObject[@"statuses"]]];
+        [arrTemp addObjectsFromArray:self.WeiboData];
+       
+        self.WeiboData=arrTemp;
+        [self.tableView reloadData];
+        [refresh endRefreshing];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [refresh endRefreshing];
+    }];
+}
+-(NSMutableArray *)WeiboData
+{
+    if(!_WeiboData)
+    {
+        _WeiboData=[NSMutableArray array];
+    }
+    return _WeiboData;
 }
 -(void)loadWeiBoData
 {
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    
     parameters[@"access_token"]=[Tools ReadAccount].access_token;
-//    parameters[@"trim_user"]=@(1);
-    parameters[@"count"]=@(100);
+    parameters[@"count"]=@(30);
+    
+    WeiBoData *firstData=[self.WeiboData firstObject];
+    if(firstData)
+    {
+        parameters[@"since_id"]=firstData.idstr;
+    }
+
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        Log(@"%@",responseObject[@"statuses"]);
-        self.WeiboData=responseObject[@"statuses"];
+
         
-//        for (NSDictionary *dic in responseObject[@"statuses"]) {
-//            WeiBoData *wdata=
-//        }
+        [arrTemp addObjectsFromArray:[WeiBoData objectArrayWithKeyValuesArray:responseObject[@"statuses"]]];
         
+        self.WeiboData=arrTemp;
+        NSLog(@"%@",responseObject[@"statuses"]);
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         Log(@"%@",error);
@@ -130,11 +177,11 @@
     
     
 //    profile_image_url
-    NSDictionary *dic=self.WeiboData[indexPath.row];
-    NSDictionary *dicUser=dic[@"user"];
-    cell.detailTextLabel.text=dic[@"text"];
-    cell.textLabel.text=dicUser[@"name"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:dicUser[@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
+    WeiBoData *dic=self.WeiboData[indexPath.row];
+   
+    cell.detailTextLabel.text=dic.text;
+    cell.textLabel.text=dic.user.name;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:dic.user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
     return cell;
 }
 

@@ -18,6 +18,7 @@
 #import <UIImageView+WebCache.h>
 #import "WeiBoData.h"
 #import "user.h"
+#import <MJExtension.h>
     #ifdef DEBUG
         #define Log(...) NSLog(__VA_ARGS__)
     #else

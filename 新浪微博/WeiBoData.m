@@ -7,15 +7,10 @@
 //
 
 #import "WeiBoData.h"
-
+#import "WeiBoImg.h"
 @implementation WeiBoData
--(instancetype)initWithDic:(NSDictionary *)dic
++(NSDictionary *)objectClassInArray
 {
-    if(self=[super init])
-    {
-        [self setValuesForKeysWithDictionary:dic];
-        NSDictionary *userDic=dic[@"user"];
-    }
-    return self;
+    return @{@"pic_urls":[WeiBoImg class]};
 }
 @end

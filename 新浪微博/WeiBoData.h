@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class user;
+@class WeiBoImg;
 @interface WeiBoData : NSObject
 /*
  created_at	string	微博创建时间
@@ -35,6 +36,10 @@
  pic_ids	object	微博配图ID。多图时返回多图ID，用来拼接图片url。用返回字段thumbnail_pic的地址配上该返回字段的图片ID，即可得到多个图片url。
  ad	object array	微博流内的推广微博ID
  */
+@property(nonatomic,strong) WeiBoData *retweeted_status;
+@property(nonatomic,strong) user *user;
+@property(nonatomic,strong) NSArray * pic_urls;
+
 @property(nonatomic,copy) NSString * created_at;
 @property(nonatomic,assign) NSNumber  *mid;
 @property(nonatomic,copy) NSString * idstr;
@@ -45,11 +50,6 @@
 @property(nonatomic,assign) NSNumber * reposts_count;
 @property(nonatomic,assign) NSNumber * comments_count;
 @property(nonatomic,assign) NSNumber * attitudes_count;
-//@property(nonatomic,copy) NSString * pic_ids;
-@property(nonatomic,strong) user *user;
-@property(nonatomic,strong) WeiBoData *retweeted_status;
 
--(instancetype)initWithDic:(NSDictionary *)dic;
-+(instancetype)WeiBoDataWithDic:(NSDictionary*)dic;
 
 @end

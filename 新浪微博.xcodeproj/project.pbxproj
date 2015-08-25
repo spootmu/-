@@ -10,6 +10,7 @@
 		185827281B8170CA00700907 /* IWNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185827271B8170CA00700907 /* IWNavBar.m */; };
 		1858272E1B818DA600700907 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858272D1B818DA600700907 /* UIBarButtonItem+Extension.m */; };
 		185827311B81926000700907 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 185827301B81926000700907 /* TitleButton.m */; };
+		186854671B8C1114009C9FEB /* WeiBoImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854661B8C1114009C9FEB /* WeiBoImg.m */; };
 		18AC21FF1B7B2CC70017B279 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC21FE1B7B2CC70017B279 /* main.m */; };
 		18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC22011B7B2CC70017B279 /* AppDelegate.m */; };
 		18AC220A1B7B2CC70017B279 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AC22091B7B2CC70017B279 /* Images.xcassets */; };
@@ -56,6 +57,8 @@
 		1858272D1B818DA600700907 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		1858272F1B81926000700907 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
 		185827301B81926000700907 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
+		186854651B8C1114009C9FEB /* WeiBoImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoImg.h; sourceTree = "<group>"; };
+		186854661B8C1114009C9FEB /* WeiBoImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoImg.m; sourceTree = "<group>"; };
 		18AC21F91B7B2CC70017B279 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AC21FD1B7B2CC70017B279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AC21FE1B7B2CC70017B279 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -431,6 +434,8 @@
 				18CBDB191B8AAF0400687CAC /* WeiBoData.m */,
 				18CBDB1B1B8AF92900687CAC /* user.h */,
 				18CBDB1C1B8AF92900687CAC /* user.m */,
+				186854651B8C1114009C9FEB /* WeiBoImg.h */,
+				186854661B8C1114009C9FEB /* WeiBoImg.m */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				18AC228D1B7C483D0017B279 /* MainTabbarControl.m in Sources */,
 				18AC22BC1B7C96890017B279 /* IWTabBarButton.m in Sources */,
 				18CBDB1A1B8AAF0400687CAC /* WeiBoData.m in Sources */,
+				186854671B8C1114009C9FEB /* WeiBoImg.m in Sources */,
 				18AC22971B7C7D110017B279 /* ZoneTableViewController.m in Sources */,
 				18AC22941B7C7CEE0017B279 /* MsgTableViewController.m in Sources */,
 				18CBDAEB1B84807900687CAC /* MBProgressHUD.m in Sources */,
