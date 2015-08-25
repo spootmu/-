@@ -13,6 +13,7 @@
 @interface HomeTableViewController ()<PopViewDelegate>
 @property(nonatomic,weak) TitleButton *btnTitle;
 @property(nonatomic,strong) NSMutableArray *WeiboData;
+@property(nonatomic,weak)UIRefreshControl *refresh;
 @end
 
 @implementation HomeTableViewController
@@ -41,33 +42,34 @@
 
 -(void)setupRefresh
 {
-    UIRefreshControl *refresh=[[UIRefreshControl alloc]init];
-    [refresh addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview: refresh];
+    self.tableView.header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadWeiBoData)];
+    [self.tableView.header beginRefreshing];
     
+    self.tableView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
--(void)refreshData:(UIRefreshControl*)refresh
+
+-(void)loadMoreData
 {
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    
+    WeiBoData *lastData=[self.WeiboData lastObject];
+    
+    
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
-    WeiBoData *firstData=[self.WeiboData firstObject];
     parameters[@"access_token"]=[Tools ReadAccount].access_token;
-    parameters[@"since_id"]=firstData.idstr;
     parameters[@"count"]=@(30);
+    parameters[@"max_id"]=@(lastData.idstr.longLongValue-1);
+    
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSMutableArray *arrTemp=[NSMutableArray array];
-        [arrTemp addObjectsFromArray:[WeiBoData objectArrayWithKeyValuesArray:responseObject[@"statuses"]]];
-        [arrTemp addObjectsFromArray:self.WeiboData];
-       
-        self.WeiboData=arrTemp;
+        [self.WeiboData addObjectsFromArray:[WeiBoData objectArrayWithKeyValuesArray:responseObject[@"statuses"]]];
         [self.tableView reloadData];
-        [refresh endRefreshing];
-
+        [self.tableView.footer endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [refresh endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
 }
+
 -(NSMutableArray *)WeiboData
 {
     if(!_WeiboData)
@@ -91,15 +93,18 @@
     }
 
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
+        
+        NSMutableArray *arrTemp=[NSMutableArray array];
         
         [arrTemp addObjectsFromArray:[WeiBoData objectArrayWithKeyValuesArray:responseObject[@"statuses"]]];
-        
+        [arrTemp addObjectsFromArray:self.WeiboData];
         self.WeiboData=arrTemp;
         NSLog(@"%@",responseObject[@"statuses"]);
         [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         Log(@"%@",error);
+        [self.tableView.header endRefreshing];
     }];
 }
 
