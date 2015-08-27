@@ -34,6 +34,8 @@
     dateFormatter.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
     NSDate *createDate=[dateFormatter dateFromString:_created_at ];
     Log(@"%@,%@",createDate,[dateFormatter stringFromDate:createDate]);
+    
+    NSDate *finalDate=[[NSDate alloc]init];
     return [dateFormatter stringFromDate:createDate];
 }
 @end
