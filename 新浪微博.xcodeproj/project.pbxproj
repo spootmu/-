@@ -11,6 +11,8 @@
 		1858272E1B818DA600700907 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858272D1B818DA600700907 /* UIBarButtonItem+Extension.m */; };
 		185827311B81926000700907 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 185827301B81926000700907 /* TitleButton.m */; };
 		186854671B8C1114009C9FEB /* WeiBoImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854661B8C1114009C9FEB /* WeiBoImg.m */; };
+		1868546A1B8DB59F009C9FEB /* WeiBoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854691B8DB59F009C9FEB /* WeiBoCell.m */; };
+		1868546D1B8DBA03009C9FEB /* WeiBoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868546C1B8DBA03009C9FEB /* WeiBoFrame.m */; };
 		18AC21FF1B7B2CC70017B279 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC21FE1B7B2CC70017B279 /* main.m */; };
 		18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC22011B7B2CC70017B279 /* AppDelegate.m */; };
 		18AC220A1B7B2CC70017B279 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AC22091B7B2CC70017B279 /* Images.xcassets */; };
@@ -59,6 +61,10 @@
 		185827301B81926000700907 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
 		186854651B8C1114009C9FEB /* WeiBoImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoImg.h; sourceTree = "<group>"; };
 		186854661B8C1114009C9FEB /* WeiBoImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoImg.m; sourceTree = "<group>"; };
+		186854681B8DB59F009C9FEB /* WeiBoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoCell.h; sourceTree = "<group>"; };
+		186854691B8DB59F009C9FEB /* WeiBoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoCell.m; sourceTree = "<group>"; };
+		1868546B1B8DBA03009C9FEB /* WeiBoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoFrame.h; sourceTree = "<group>"; };
+		1868546C1B8DBA03009C9FEB /* WeiBoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoFrame.m; sourceTree = "<group>"; };
 		18AC21F91B7B2CC70017B279 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AC21FD1B7B2CC70017B279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AC21FE1B7B2CC70017B279 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -299,6 +305,8 @@
 				185827301B81926000700907 /* TitleButton.m */,
 				18AE601A1B81D3C100373E96 /* PopView.h */,
 				18AE601B1B81D3C100373E96 /* PopView.m */,
+				186854681B8DB59F009C9FEB /* WeiBoCell.h */,
+				186854691B8DB59F009C9FEB /* WeiBoCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -436,6 +444,8 @@
 				18CBDB1C1B8AF92900687CAC /* user.m */,
 				186854651B8C1114009C9FEB /* WeiBoImg.h */,
 				186854661B8C1114009C9FEB /* WeiBoImg.m */,
+				1868546B1B8DBA03009C9FEB /* WeiBoFrame.h */,
+				1868546C1B8DBA03009C9FEB /* WeiBoFrame.m */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
@@ -621,11 +631,13 @@
 				18CBDB0E1B86C87B00687CAC /* OAuthData.m in Sources */,
 				18CBDB1D1B8AF92900687CAC /* user.m in Sources */,
 				18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */,
+				1868546D1B8DBA03009C9FEB /* WeiBoFrame.m in Sources */,
 				18AC229A1B7C7D1C0017B279 /* SettingTableViewController.m in Sources */,
 				18CBDB161B8705AA00687CAC /* NSArray+Log.m in Sources */,
 				18AE60A21B83133A00373E96 /* NewFeaturesVC.m in Sources */,
 				1858272E1B818DA600700907 /* UIBarButtonItem+Extension.m in Sources */,
 				185827281B8170CA00700907 /* IWNavBar.m in Sources */,
+				1868546A1B8DB59F009C9FEB /* WeiBoCell.m in Sources */,
 				18AC21FF1B7B2CC70017B279 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +712,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -737,6 +750,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

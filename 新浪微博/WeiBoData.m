@@ -13,4 +13,27 @@
 {
     return @{@"pic_urls":[WeiBoImg class]};
 }
+-(NSString *)source
+{
+    NSUInteger startloc=[_source rangeOfString:@">"].location+1;
+    NSUInteger endloc=[_source rangeOfString:@"</"].location;
+    NSUInteger length=endloc-startloc;
+    if(_source.length>0)
+    {
+        NSString *finalstr=[_source substringWithRange:NSMakeRange(startloc, length)];
+//        Log(@"s:%lu,e:%lu,str:%@",startloc,(unsigned long)endloc,finalstr);
+        return [@"来自:" stringByAppendingString:finalstr];
+    }
+    return _source;
+}
+-(NSString *)created_at
+{
+//    Log(@"%@",_created_at);
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat=@"EEE MMM dd HH:mm:ss Z yyyy";
+    dateFormatter.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    NSDate *createDate=[dateFormatter dateFromString:_created_at ];
+    Log(@"%@,%@",createDate,[dateFormatter stringFromDate:createDate]);
+    return [dateFormatter stringFromDate:createDate];
+}
 @end

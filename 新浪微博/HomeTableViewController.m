@@ -1,7 +1,6 @@
 //
 //  HomeTableViewController.m
-//  新浪微博
-//
+//  新浪微博//
 //  Created by apple on 15/8/13.
 //  Copyright (c) 2015年 spoot. All rights reserved.
 //
@@ -9,10 +8,13 @@
 #import "HomeTableViewController.h"
 #import "TitleButton.h"
 #import "PopView.h"
+
 #import "Tools.h"
+#import "WeiBoCell.h"
+#import "WeiBoFrame.h"
 @interface HomeTableViewController ()<PopViewDelegate>
 @property(nonatomic,weak) TitleButton *btnTitle;
-@property(nonatomic,strong) NSMutableArray *WeiboData;
+@property(nonatomic,strong) NSMutableArray *WeiboDataFrame;
 @property(nonatomic,weak)UIRefreshControl *refresh;
 @end
 
@@ -52,17 +54,27 @@
 {
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     
-    WeiBoData *lastData=[self.WeiboData lastObject];
+    WeiBoFrame *lastData=[self.WeiboDataFrame lastObject];
     
     
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     parameters[@"access_token"]=[Tools ReadAccount].access_token;
     parameters[@"count"]=@(30);
-    parameters[@"max_id"]=@(lastData.idstr.longLongValue-1);
+    parameters[@"max_id"]=@(lastData.data.idstr.longLongValue-1);
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self.WeiboData addObjectsFromArray:[WeiBoData objectArrayWithKeyValuesArray:responseObject[@"statuses"]]];
+        NSArray *dicArray=responseObject[@"statuses"];
+        NSArray *newData=[WeiBoData objectArrayWithKeyValuesArray:dicArray];
+        NSMutableArray *arrFrame=[NSMutableArray arrayWithCapacity:newData.count];
+        
+        for (WeiBoData *data in newData) {
+            WeiBoFrame *frame=[[WeiBoFrame alloc]init];
+            frame.data=data;
+            [arrFrame addObject:frame];
+        }
+        
+        [self.WeiboDataFrame addObjectsFromArray:arrFrame];
         [self.tableView reloadData];
         [self.tableView.footer endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -70,14 +82,15 @@
     }];
 }
 
--(NSMutableArray *)WeiboData
+-(NSMutableArray *)WeiboDataFrame
 {
-    if(!_WeiboData)
+    if(!_WeiboDataFrame)
     {
-        _WeiboData=[NSMutableArray array];
+        _WeiboDataFrame=[NSMutableArray array];
     }
-    return _WeiboData;
+    return _WeiboDataFrame;
 }
+
 -(void)loadWeiBoData
 {
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
@@ -86,20 +99,31 @@
     parameters[@"access_token"]=[Tools ReadAccount].access_token;
     parameters[@"count"]=@(30);
     
-    WeiBoData *firstData=[self.WeiboData firstObject];
+    WeiBoFrame *firstData=[self.WeiboDataFrame firstObject];
     if(firstData)
     {
-        parameters[@"since_id"]=firstData.idstr;
+        parameters[@"since_id"]=firstData.data.idstr;
     }
 
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
+        NSArray *dicArray=responseObject[@"statuses"];
+        NSArray *newData=[WeiBoData objectArrayWithKeyValuesArray:dicArray];
+        
         NSMutableArray *arrTemp=[NSMutableArray array];
         
-        [arrTemp addObjectsFromArray:[WeiBoData objectArrayWithKeyValuesArray:responseObject[@"statuses"]]];
-        [arrTemp addObjectsFromArray:self.WeiboData];
-        self.WeiboData=arrTemp;
-        NSLog(@"%@",responseObject[@"statuses"]);
+        NSMutableArray *arrFrame=[NSMutableArray arrayWithCapacity:newData.count];
+        
+        for (WeiBoData *data in newData) {
+            WeiBoFrame *frame=[[WeiBoFrame alloc]init];
+            frame.data=data;
+            [arrFrame addObject:frame];
+        }
+        
+        [arrTemp addObjectsFromArray:arrFrame];
+        [arrTemp addObjectsFromArray:self.WeiboDataFrame];
+        self.WeiboDataFrame=arrTemp;
+//        NSLog(@"%@",responseObject[@"statuses"]);
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -168,25 +192,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.WeiboData.count;
+    return self.WeiboDataFrame.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeCell"];
-    
-    if(!cell)
-    {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"homeCell"];
-    }
-    
-    
-//    profile_image_url
-    WeiBoData *dic=self.WeiboData[indexPath.row];
-   
-    cell.detailTextLabel.text=dic.text;
-    cell.textLabel.text=dic.user.name;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:dic.user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
+    WeiBoFrame *dic=self.WeiboDataFrame[indexPath.row];
+    WeiBoCell *cell=[WeiBoCell WeiBoCellWithTableView:tableView];
+    cell.cellFrame=dic;
     return cell;
 }
 
@@ -197,6 +210,12 @@
     vc.title=[NSString stringWithFormat:@"row of %zd",indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeiBoFrame *cellFrame=self.WeiboDataFrame[indexPath.row];
+    return cellFrame.cellHeght;
 }
 
 /*
