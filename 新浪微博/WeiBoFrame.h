@@ -25,6 +25,7 @@
 @property(nonatomic,assign,readonly) CGRect iconViewF;
 @property(nonatomic,assign,readonly) CGRect nameLableF;
 @property(nonatomic,assign,readonly) CGRect vipViewF;
+@property(nonatomic,assign,readonly) CGRect rankViewF;
 @property(nonatomic,assign,readonly) CGRect timeLabelF;
 @property(nonatomic,assign,readonly) CGRect sourceViewF;
 @property(nonatomic,assign,readonly) CGRect contextViewF;

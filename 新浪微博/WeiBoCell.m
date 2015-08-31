@@ -14,6 +14,7 @@
 @property(weak,nonatomic) UIView *topView;
 @property(weak,nonatomic) UIImageView *imgHead;
 @property(weak,nonatomic) UIImageView *imgVip;
+@property(weak,nonatomic) UIImageView *imgRank;
 @property(weak,nonatomic) UILabel *lblName;
 @property(weak,nonatomic) UILabel *lblTime;
 @property(weak,nonatomic) UILabel *lblSource;
@@ -62,7 +63,32 @@
     self.lblName.text=userinfo.name;
     self.lblTime.text=data.created_at;
     self.lblSource.text=data.source;
+    if(userinfo.verified)
+    {
+        self.imgVip.hidden=NO;
+        self.imgVip.image=[UIImage imageNamed:@"avatar_vip"];
+        self.lblName.textColor=[UIColor orangeColor];
+    }
+    else
+    {
+        self.imgVip.hidden=YES;
+        self.lblName.textColor=[UIColor blackColor];
+    }
     
+    if(userinfo.mbtype>0)
+    {
+        self.imgVip.hidden=NO;
+        NSString *imgStr=@"common_icon_membership_expired";
+        if(userinfo.mbrank>0)
+        {
+            imgStr=[NSString stringWithFormat:@"common_icon_membership_level%d",userinfo.mbrank];
+        }
+        UIImage *imgRank=[UIImage imageNamed:imgStr];
+        self.imgRank.image=imgRank;
+    }
+    else {
+        self.imgRank.hidden=YES;
+    }
     self.lblContext.text=data.text;
     
 }
@@ -71,6 +97,7 @@
     self.imgHead.frame=self.cellFrame.iconViewF;
     self.lblName.frame=self.cellFrame.nameLableF;
     self.imgVip.frame=self.cellFrame.vipViewF;
+    self.imgRank.frame=self.cellFrame.rankViewF;
     self.lblTime.frame=self.cellFrame.timeLabelF;
     self.lblSource.frame=self.cellFrame.sourceViewF;
     self.lblContext.frame=self.cellFrame.contextViewF;
@@ -98,14 +125,19 @@
     [topView addSubview:imgVip];
     self.imgVip=imgVip;
     
+    UIImageView *imgRank=[[UIImageView alloc] init];
+    [topView addSubview:imgRank];
+    self.imgRank=imgRank;
+    
     UILabel *lblName=[[UILabel alloc]init];
     lblName.font=nameFont;
-    
+//    lblName.textColor=[UIColor orangeColor];
     [topView addSubview:lblName];
     self.lblName=lblName;
     
     UILabel *lblTime=[[UILabel alloc]init];
     lblTime.font=timeFont;
+    lblTime.textColor=[UIColor orangeColor];
     [topView addSubview:lblTime];
     self.lblTime=lblTime;
     

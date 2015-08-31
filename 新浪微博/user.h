@@ -46,4 +46,7 @@
 @property (nonatomic,copy) NSString *idstr;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *profile_image_url;
+@property(nonatomic,assign) BOOL verified;
+@property(nonatomic,assign) int mbrank;
+@property(nonatomic,assign) int mbtype;
 @end

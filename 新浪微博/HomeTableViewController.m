@@ -97,7 +97,7 @@
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     
     parameters[@"access_token"]=[Tools ReadAccount].access_token;
-    parameters[@"count"]=@(30);
+    parameters[@"count"]=@(100);
     
     WeiBoFrame *firstData=[self.WeiboDataFrame firstObject];
     if(firstData)
@@ -108,6 +108,7 @@
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSArray *dicArray=responseObject[@"statuses"];
+        Log(@"%@",dicArray);
         NSArray *newData=[WeiBoData objectArrayWithKeyValuesArray:dicArray];
         
         NSMutableArray *arrTemp=[NSMutableArray array];

@@ -13,6 +13,7 @@
 		186854671B8C1114009C9FEB /* WeiBoImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854661B8C1114009C9FEB /* WeiBoImg.m */; };
 		1868546A1B8DB59F009C9FEB /* WeiBoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854691B8DB59F009C9FEB /* WeiBoCell.m */; };
 		1868546D1B8DBA03009C9FEB /* WeiBoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868546C1B8DBA03009C9FEB /* WeiBoFrame.m */; };
+		186854701B9043B7009C9FEB /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868546F1B9043B7009C9FEB /* NSDate+Extension.m */; };
 		18AC21FF1B7B2CC70017B279 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC21FE1B7B2CC70017B279 /* main.m */; };
 		18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC22011B7B2CC70017B279 /* AppDelegate.m */; };
 		18AC220A1B7B2CC70017B279 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AC22091B7B2CC70017B279 /* Images.xcassets */; };
@@ -65,6 +66,8 @@
 		186854691B8DB59F009C9FEB /* WeiBoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoCell.m; sourceTree = "<group>"; };
 		1868546B1B8DBA03009C9FEB /* WeiBoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoFrame.h; sourceTree = "<group>"; };
 		1868546C1B8DBA03009C9FEB /* WeiBoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoFrame.m; sourceTree = "<group>"; };
+		1868546E1B9043B7009C9FEB /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		1868546F1B9043B7009C9FEB /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		18AC21F91B7B2CC70017B279 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AC21FD1B7B2CC70017B279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AC21FE1B7B2CC70017B279 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 				1858272D1B818DA600700907 /* UIBarButtonItem+Extension.m */,
 				18AE60171B81CBD400373E96 /* UIImage+Extension.h */,
 				18AE60181B81CBD400373E96 /* UIImage+Extension.m */,
+				1868546E1B9043B7009C9FEB /* NSDate+Extension.h */,
+				1868546F1B9043B7009C9FEB /* NSDate+Extension.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186854701B9043B7009C9FEB /* NSDate+Extension.m in Sources */,
 				18CBDB121B86D70C00687CAC /* Tools.m in Sources */,
 				18AC22B81B7C8C970017B279 /* UIView+Extension.m in Sources */,
 				18AE60191B81CBD400373E96 /* UIImage+Extension.m in Sources */,

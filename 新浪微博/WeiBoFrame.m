@@ -31,9 +31,15 @@
     
     CGFloat vipX=CGRectGetMaxX(_nameLableF)+magin;
     CGFloat vipY=magin;
-    CGFloat vipW=14;
-    CGFloat vipH=14;
+    CGFloat vipW=17;
+    CGFloat vipH=17;
     _vipViewF=CGRectMake(vipX, vipY, vipW, vipH);
+    
+    CGFloat rankX=CGRectGetMaxX(_vipViewF)+magin;
+    CGFloat rankY=magin;
+    CGFloat rankW=14;
+    CGFloat rankH=14;
+    _rankViewF=CGRectMake(rankX, rankY, rankW, rankH);
     
     NSDictionary *timeAttributes=@{NSFontAttributeName:timeFont};
     CGFloat timeX=CGRectGetMaxX(_iconViewF)+magin;
