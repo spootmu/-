@@ -34,4 +34,7 @@
 @property(nonatomic,assign,readonly) CGFloat cellHeght;
 
 @property(assign,nonatomic,readonly)CGRect originalViewF;
+
+@property(nonatomic,assign,readonly) CGRect originalPhotosViewF;
+@property(nonatomic,assign,readonly) CGRect rePhotosViewF;
 @end

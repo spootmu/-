@@ -25,6 +25,9 @@
 #define contextFont  [UIFont systemFontOfSize:13]
 #define timeFont  [UIFont systemFontOfSize:10]
 #define sourceFont  [UIFont systemFontOfSize:10]
+#define photoW 70
+#define photoH 80
+#define photoPadding 5
     #ifdef DEBUG
         #define Log(...) NSLog(__VA_ARGS__)
     #else

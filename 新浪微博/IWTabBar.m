@@ -84,16 +84,20 @@
     self.btnCenter.cy=self.h*0.5;
 }
 
+
+
 -(UIButton *)btnCenter
 {
     if (_btnCenter == nil) {
         UIButton *btnCenter = [[UIButton alloc] init];
+        
         // 1.2.设置背景图片
         [btnCenter setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
         [btnCenter setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
         // 1.3.设置图标
         [btnCenter setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [btnCenter setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
+        
         // 1.4.添加
         [self addSubview:btnCenter];
         _btnCenter = btnCenter;

@@ -45,7 +45,7 @@
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.backgroundColor=[UIColor clearColor];
+        self.backgroundColor=[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:100];
         
         [self setupTopView];
         [self setupBottomView];

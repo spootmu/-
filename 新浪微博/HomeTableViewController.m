@@ -39,8 +39,8 @@
     [self setupBarButton];
     [self setupTitleButton];
     [self loadWeiBoData];
-    
     [self setupRefresh];
+    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 10, 0);
 }
 
 
@@ -110,7 +110,7 @@
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSArray *dicArray=responseObject[@"statuses"];
-        Log(@"%@",dicArray);
+//        Log(@"%@",dicArray);
         NSArray *newData=[WeiBoData objectArrayWithKeyValuesArray:dicArray];
         
         NSMutableArray *arrTemp=[NSMutableArray array];
@@ -130,7 +130,7 @@
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        Log(@"%@",error);
+//        Log(@"%@",error);
         [self.tableView.header endRefreshing];
     }];
 }

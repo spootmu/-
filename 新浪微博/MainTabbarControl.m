@@ -80,19 +80,19 @@
 -(void)setupTabBar
 {
     HomeTableViewController *home=[[HomeTableViewController alloc]init];
-    [self addOneChildVc:home title:@"首页" imageName:@"tabbar_home_os7" selectedImageName:@"tabbar_home_selected_os7"];
+    [self addOneChildVc:home title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
     
     MsgTableViewController *msg=[[MsgTableViewController alloc]init];
 
-    [self addOneChildVc:msg title:@"消息" imageName:@"tabbar_message_center_os7" selectedImageName:@"tabbar_message_center_selected_os7"];
+    [self addOneChildVc:msg title:@"消息" imageName:@"tabbar_message_center" selectedImageName:@"tabbar_message_center_selected"];
     
     ZoneTableViewController *zone=[[ZoneTableViewController alloc]init];
 
-    [self addOneChildVc:zone title:@"广场" imageName:@"tabbar_discover_os7" selectedImageName:@"tabbar_discover_selected_os7"];
+    [self addOneChildVc:zone title:@"广场" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
     
     SettingTableViewController *setting=[[SettingTableViewController alloc]init];
 
-    [self addOneChildVc:setting title:@"我" imageName:@"tabbar_profile_os7" selectedImageName:@"tabbar_profile_selected_os7"];
+    [self addOneChildVc:setting title:@"我" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
 }
 
 @end

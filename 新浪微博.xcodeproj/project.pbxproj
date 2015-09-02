@@ -18,6 +18,8 @@
 		186854761B945521009C9FEB /* WeiBoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854751B945521009C9FEB /* WeiBoToolBar.m */; };
 		1868547A1B9456C9009C9FEB /* WeiBoRepostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854791B9456C9009C9FEB /* WeiBoRepostView.m */; };
 		1868547D1B9456E6009C9FEB /* WeiBoOriginalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868547C1B9456E6009C9FEB /* WeiBoOriginalView.m */; };
+		186854831B96D2B5009C9FEB /* WeiBoPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854821B96D2B5009C9FEB /* WeiBoPhotos.m */; };
+		186854861B96F823009C9FEB /* WeiBoPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854851B96F823009C9FEB /* WeiBoPhoto.m */; };
 		18AC21FF1B7B2CC70017B279 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC21FE1B7B2CC70017B279 /* main.m */; };
 		18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC22011B7B2CC70017B279 /* AppDelegate.m */; };
 		18AC220A1B7B2CC70017B279 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AC22091B7B2CC70017B279 /* Images.xcassets */; };
@@ -80,6 +82,10 @@
 		186854791B9456C9009C9FEB /* WeiBoRepostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoRepostView.m; sourceTree = "<group>"; };
 		1868547B1B9456E6009C9FEB /* WeiBoOriginalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoOriginalView.h; sourceTree = "<group>"; };
 		1868547C1B9456E6009C9FEB /* WeiBoOriginalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoOriginalView.m; sourceTree = "<group>"; };
+		186854811B96D2B5009C9FEB /* WeiBoPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoPhotos.h; sourceTree = "<group>"; };
+		186854821B96D2B5009C9FEB /* WeiBoPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoPhotos.m; sourceTree = "<group>"; };
+		186854841B96F823009C9FEB /* WeiBoPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoPhoto.h; sourceTree = "<group>"; };
+		186854851B96F823009C9FEB /* WeiBoPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoPhoto.m; sourceTree = "<group>"; };
 		18AC21F91B7B2CC70017B279 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AC21FD1B7B2CC70017B279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AC21FE1B7B2CC70017B279 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -330,6 +336,10 @@
 				186854791B9456C9009C9FEB /* WeiBoRepostView.m */,
 				1868547B1B9456E6009C9FEB /* WeiBoOriginalView.h */,
 				1868547C1B9456E6009C9FEB /* WeiBoOriginalView.m */,
+				186854811B96D2B5009C9FEB /* WeiBoPhotos.h */,
+				186854821B96D2B5009C9FEB /* WeiBoPhotos.m */,
+				186854841B96F823009C9FEB /* WeiBoPhoto.h */,
+				186854851B96F823009C9FEB /* WeiBoPhoto.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -644,6 +654,7 @@
 				18AC22B41B7C86840017B279 /* IWTabBar.m in Sources */,
 				18AC228D1B7C483D0017B279 /* MainTabbarControl.m in Sources */,
 				18AC22BC1B7C96890017B279 /* IWTabBarButton.m in Sources */,
+				186854831B96D2B5009C9FEB /* WeiBoPhotos.m in Sources */,
 				18CBDB1A1B8AAF0400687CAC /* WeiBoData.m in Sources */,
 				186854671B8C1114009C9FEB /* WeiBoImg.m in Sources */,
 				18AC22971B7C7D110017B279 /* ZoneTableViewController.m in Sources */,
@@ -657,6 +668,7 @@
 				186854731B945512009C9FEB /* WeiBoTopView.m in Sources */,
 				18CBDB0E1B86C87B00687CAC /* OAuthData.m in Sources */,
 				18CBDB1D1B8AF92900687CAC /* user.m in Sources */,
+				186854861B96F823009C9FEB /* WeiBoPhoto.m in Sources */,
 				1868547D1B9456E6009C9FEB /* WeiBoOriginalView.m in Sources */,
 				18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */,
 				1868546D1B8DBA03009C9FEB /* WeiBoFrame.m in Sources */,

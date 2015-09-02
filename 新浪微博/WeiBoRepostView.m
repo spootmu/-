@@ -10,10 +10,12 @@
 #import "WeiBoFrame.h"
 #import "WeiBoData.h"
 #import "user.h"
+#import "WeiBoPhotos.h"
 @interface WeiBoRepostView()
 //@property(weak,nonatomic) UIImageView *imgRepost;
 @property(weak,nonatomic) UILabel *lblReName;
 @property(weak,nonatomic) UILabel *lblReContext;
+@property(weak,nonatomic)WeiBoPhotos *wbRepostImgsView;
 @end
 @implementation WeiBoRepostView
 -(instancetype)initWithFrame:(CGRect)frame
@@ -33,6 +35,10 @@
         lblReContext.numberOfLines=0;
         [self  addSubview:lblReContext];
         self.lblReContext=lblReContext;
+        
+        WeiBoPhotos *wbRepostImgsView=[[WeiBoPhotos alloc]init];
+        [self addSubview:wbRepostImgsView];
+        self.wbRepostImgsView=wbRepostImgsView;
     }
     return self;
 }
@@ -50,6 +56,7 @@
     {
         self.lblReName.frame=self.cellFrame.reNameF;
         self.lblReContext.frame=self.cellFrame.reContextF;
+        self.wbRepostImgsView.frame=self.cellFrame.rePhotosViewF;
     }
 }
 
@@ -62,6 +69,7 @@
         self.hidden=NO;
         self.lblReName.text=data.retweeted_status.user.name;
         self.lblReContext.text=data.retweeted_status.text;
+        self.wbRepostImgsView.photos=data.retweeted_status.pic_urls;
     }
     else{
         self.hidden=YES;

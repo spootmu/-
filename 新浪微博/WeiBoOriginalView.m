@@ -10,7 +10,7 @@
 #import "WeiBoFrame.h"
 #import "WeiBoData.h"
 #import "user.h"
-
+#import "WeiBoPhotos.h"
 @interface WeiBoOriginalView()
 @property(weak,nonatomic) UIImageView *imgHead;
 @property(weak,nonatomic) UIImageView *imgVip;
@@ -19,6 +19,7 @@
 @property(weak,nonatomic) UILabel *lblTime;
 @property(weak,nonatomic) UILabel *lblSource;
 @property(weak,nonatomic) UILabel *lblContext;
+@property (weak,nonatomic) WeiBoPhotos *wbOriginalImgsView;
 @end
 @implementation WeiBoOriginalView
 -(instancetype)initWithFrame:(CGRect)frame
@@ -58,6 +59,10 @@
         lblContext.font=contextFont;
         [self addSubview:lblContext];
         self.lblContext=lblContext;
+        
+        WeiBoPhotos *wbOriginalImgsView=[[WeiBoPhotos alloc]init];
+        [self addSubview:wbOriginalImgsView];
+        self.wbOriginalImgsView=wbOriginalImgsView;
     }
     return self;
 }
@@ -80,6 +85,7 @@
     self.lblTime.frame=self.cellFrame.timeLabelF;
     self.lblSource.frame=self.cellFrame.sourceViewF;
     self.lblContext.frame=self.cellFrame.contextViewF;
+    self.wbOriginalImgsView.frame=self.cellFrame.originalPhotosViewF;
 }
 
 -(void)setupData
@@ -117,5 +123,7 @@
         self.imgRank.hidden=YES;
     }
     self.lblContext.text=data.text;
+    
+    self.wbOriginalImgsView.photos=data.pic_urls;
 }
 @end

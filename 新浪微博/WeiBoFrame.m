@@ -9,6 +9,7 @@
 #import "WeiBoFrame.h"
 #define magin 10
 #define screenW [UIScreen mainScreen].bounds.size.width
+
 @implementation WeiBoFrame
 
 -(void)setData:(WeiBoData *)data
@@ -21,6 +22,9 @@
     _cellHeght=CGRectGetMaxY(_toolbarViewF);
 }
 
+/**
+ *  微博视图
+ */
 -(void)setupTopView
 {
     [self setupOriginal];
@@ -38,11 +42,14 @@
     }
     
     CGFloat topX=0;
-    CGFloat topY=2;
+    CGFloat topY=5;
     CGFloat topW=screenW;
     _topViewF=CGRectMake(topX, topY, topW, topH);
 }
 
+/**
+ *  底部工具条
+ */
 -(void)setupBottomView
 {
     CGFloat toolbarX=0;
@@ -52,6 +59,9 @@
     _toolbarViewF=CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
 }
 
+/**
+ *  转发微博
+ */
 -(void)setupRepost
 {
     NSDictionary *attributes = @{NSFontAttributeName:nameFont};
@@ -69,12 +79,54 @@
     CGSize reContextSize=[_data.retweeted_status.text boundingRectWithSize:reContextMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contextAttributes context:nil].size;
     _reContextF=(CGRect){{reContextX,reContextY},reContextSize};
     
+    CGFloat reViewH=0;
+    NSArray *photosArr=_data.retweeted_status.pic_urls;
+    NSInteger photoCount=photosArr.count;
+    if(photoCount>0)
+    {
+        CGSize rePhotoSize=[self setupPhotos:photoCount];
+        CGFloat rePhotoViewX=magin;
+        CGFloat rePhotoViewY=CGRectGetMaxY(_reContextF)+magin;
+        
+        _rePhotosViewF=(CGRect){{rePhotoViewX,rePhotoViewY},rePhotoSize};
+        reViewH=CGRectGetMaxY(_rePhotosViewF)+magin;
+    }
+    else
+    {
+        reViewH=CGRectGetMaxY(_reContextF)+magin;
+    }
+    
     CGFloat reViewX=0;
     CGFloat reViewY=CGRectGetMaxY(_contextViewF)+magin;
     CGFloat reViewW=screenW;
-    CGFloat reViewH=CGRectGetMaxY(_reContextF)+magin;;
     _reViewF=CGRectMake(reViewX, reViewY, reViewW, reViewH);
 }
+
+/**
+ *  计算配图大小
+ *
+ *  @param count 图片数量
+ *
+ *  @return view大小
+ */
+-(CGSize)setupPhotos:(NSInteger)count
+{
+    NSInteger photoCount=count;
+    NSInteger maxCol=photoCount==4?2:3;
+    NSInteger photoColNum=photoCount>maxCol?maxCol:photoCount;
+    NSInteger photoRowNum=photoCount/maxCol;
+    if(photoCount%maxCol !=0)
+    {
+        photoRowNum++;
+    }
+    
+    CGFloat PhotoViewW=photoColNum*photoW+(photoColNum-1)*photoPadding;
+    CGFloat PhotoViewH=photoRowNum*photoH+(photoRowNum-1)*photoPadding;
+    return CGSizeMake(PhotoViewW, PhotoViewH);
+}
+/**
+ *  原创微博
+ */
 -(void)setupOriginal
 {
     NSDictionary *attributes = @{NSFontAttributeName:nameFont};
@@ -120,11 +172,28 @@
     CGSize contextSize=[_data.text boundingRectWithSize:contextMaxSize options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:contextAttributes context:nil].size;
     _contextViewF=(CGRect){{contextX,contextY},contextSize};
     
+    CGFloat originalViewH=0;
+    
+    NSArray *photosArr=_data.pic_urls;
+    NSInteger photoCount=photosArr.count;
+    if(photoCount>0)
+    {
+        CGSize originalPhotoSize=[self setupPhotos:photoCount];
+        CGFloat originalPhotoViewX=magin;
+        CGFloat originalPhotoViewY=CGRectGetMaxY(_contextViewF)+magin;
+        
+        _originalPhotosViewF=(CGRect){{originalPhotoViewX,originalPhotoViewY},originalPhotoSize};
+         originalViewH=CGRectGetMaxY(_originalPhotosViewF)+magin;
+    }
+    else
+    {
+         originalViewH=CGRectGetMaxY(_contextViewF)+magin;
+    }
     
     CGFloat originalViewX=0;
     CGFloat originalViewY=0;
     CGFloat originalViewW=screenW;
-    CGFloat originalViewH=CGRectGetMaxY(_contextViewF)+magin;
+    
     _originalViewF=CGRectMake(originalViewX, originalViewY, originalViewW, originalViewH);
 }
 @end
