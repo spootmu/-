@@ -29,7 +29,8 @@
 {
     if(self=[super initWithFrame:frame])
     {
-        self.image=[UIImage imageNamed:@"common_card_background"];
+        self.backgroundColor=[UIColor whiteColor];
+        self.image=[UIImage resizableImageWithName:@"timeline_card_top_background"];
         WeiBoOriginalView *originalView=[[WeiBoOriginalView alloc]init];
         [self addSubview: originalView];
         self.originalView=originalView;

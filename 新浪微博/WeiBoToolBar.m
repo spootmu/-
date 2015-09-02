@@ -41,7 +41,9 @@
 {
     if(self=[super initWithFrame:frame])
     {
-        self.image=[UIImage imageNamed:@"timeline_card_bottom_background"];
+        self.backgroundColor=[UIColor whiteColor];
+        
+        self.image=[UIImage imageNamed:@"common_card_bottom_background"];
         self.userInteractionEnabled=YES;
        self.btnTurnPost= [self addButtonWithText:@"转发" ImageNor:[UIImage imageNamed:@"timeline_icon_retweet"]];
        self.btnComment= [self addButtonWithText:@"评论" ImageNor:[UIImage imageNamed:@"timeline_icon_comment"]];

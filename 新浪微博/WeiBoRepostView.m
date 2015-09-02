@@ -20,7 +20,7 @@
 {
     if(self=[super initWithFrame:frame])
     {
-        self.image=[UIImage imageNamed:@"timeline_retweet_background"];
+        self.image=[UIImage resizableImageWithName:@"timeline_retweet_background"];
         
         UILabel *lblReName=[[UILabel alloc]init];
         lblReName.font=nameFont;

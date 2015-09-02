@@ -28,6 +28,7 @@
     {
         self.edgesForExtendedLayout=UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
+        
     }
     return self;
 }

@@ -8,16 +8,76 @@
 
 #import "WeiBoFrame.h"
 #define magin 10
-
+#define screenW [UIScreen mainScreen].bounds.size.width
 @implementation WeiBoFrame
 
 -(void)setData:(WeiBoData *)data
 {
-    NSDictionary *attributes = @{NSFontAttributeName:nameFont};
-    CGFloat screenW=[UIScreen mainScreen].bounds.size.width;
-    
-    
     _data=data;
+
+    [self setupTopView];
+    [self setupBottomView];
+    
+    _cellHeght=CGRectGetMaxY(_toolbarViewF);
+}
+
+-(void)setupTopView
+{
+    [self setupOriginal];
+    
+    [self setupRepost];
+    
+    CGFloat topH=0;
+    if(_data.retweeted_status)
+    {
+        topH=CGRectGetMaxY(_reViewF);
+    }
+    else
+    {
+        topH=CGRectGetMaxY(_originalViewF);
+    }
+    
+    CGFloat topX=0;
+    CGFloat topY=2;
+    CGFloat topW=screenW;
+    _topViewF=CGRectMake(topX, topY, topW, topH);
+}
+
+-(void)setupBottomView
+{
+    CGFloat toolbarX=0;
+    CGFloat toolbarY=CGRectGetMaxY(_topViewF);
+    CGFloat toolbarW=screenW;
+    CGFloat toolbarH=35;
+    _toolbarViewF=CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
+}
+
+-(void)setupRepost
+{
+    NSDictionary *attributes = @{NSFontAttributeName:nameFont};
+    NSDictionary *contextAttributes=@{NSFontAttributeName:contextFont};
+    _data.retweeted_status.user.name=[NSString stringWithFormat:@"@%@",_data.retweeted_status.user.name];
+    CGFloat renameX=magin;
+    CGFloat renameY=magin;
+    CGSize renameMaxSize=CGSizeMake(screenW-magin*2, MAXFLOAT);
+    CGSize renameSize=[_data.retweeted_status.user.name boundingRectWithSize:renameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    _reNameF=(CGRect){{renameX,renameY},renameSize};
+    
+    CGFloat reContextX=magin;
+    CGFloat reContextY=CGRectGetMaxY(_reNameF)+magin;;
+    CGSize  reContextMaxSize=CGSizeMake(screenW-magin*2, MAXFLOAT);
+    CGSize reContextSize=[_data.retweeted_status.text boundingRectWithSize:reContextMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contextAttributes context:nil].size;
+    _reContextF=(CGRect){{reContextX,reContextY},reContextSize};
+    
+    CGFloat reViewX=0;
+    CGFloat reViewY=CGRectGetMaxY(_contextViewF)+magin;
+    CGFloat reViewW=screenW;
+    CGFloat reViewH=CGRectGetMaxY(_reContextF)+magin;;
+    _reViewF=CGRectMake(reViewX, reViewY, reViewW, reViewH);
+}
+-(void)setupOriginal
+{
+    NSDictionary *attributes = @{NSFontAttributeName:nameFont};
     CGFloat iconX=magin;
     CGFloat iconY=magin;
     CGFloat iconW=35;
@@ -46,7 +106,7 @@
     CGFloat timeY=CGRectGetMaxY(_nameLableF)+magin-2;
     CGSize timeSize=[_data.created_at sizeWithAttributes:timeAttributes];
     _timeLabelF=(CGRect){{timeX,timeY},timeSize};
-
+    
     NSDictionary *sourceAttributes=@{NSFontAttributeName:sourceFont};
     CGFloat sourceX=CGRectGetMaxX(_timeLabelF)+magin;
     CGFloat sourceY=timeY;
@@ -66,57 +126,5 @@
     CGFloat originalViewW=screenW;
     CGFloat originalViewH=CGRectGetMaxY(_contextViewF)+magin;
     _originalViewF=CGRectMake(originalViewX, originalViewY, originalViewW, originalViewH);
-    
-    
-    
-#pragma repost
-    CGFloat toolbarY=0;
-    CGFloat topH=0;
-    if(_data.retweeted_status)
-    {
-        _data.retweeted_status.user.name=[NSString stringWithFormat:@"@%@",_data.retweeted_status.user.name];
-        CGFloat renameX=magin;
-        CGFloat renameY=magin;
-        CGSize renameMaxSize=contextMaxSize;
-        CGSize renameSize=[_data.retweeted_status.user.name boundingRectWithSize:renameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
-        _reNameF=(CGRect){{renameX,renameY},renameSize};
-        
-        CGFloat reContextX=magin;
-        CGFloat reContextY=CGRectGetMaxY(_reNameF)+magin;;
-        CGSize  reContextMaxSize=contextMaxSize;
-        CGSize reContextSize=[_data.retweeted_status.text boundingRectWithSize:reContextMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contextAttributes context:nil].size;
-        _reContextF=(CGRect){{reContextX,reContextY},reContextSize};
-        
-        CGFloat reViewX=0;
-        CGFloat reViewY=CGRectGetMaxY(_contextViewF)+magin;
-        CGFloat reViewW=screenW;
-        CGFloat reViewH=CGRectGetMaxY(_reContextF)+magin;;
-        _reViewF=CGRectMake(reViewX, reViewY, reViewW, reViewH);
-        
-        CGFloat topX=0;
-        CGFloat topY=0;
-        CGFloat topW=screenW;
-        topH=CGRectGetMaxY(_originalViewF)+CGRectGetMaxY(_reViewF);
-        _topViewF=CGRectMake(topX, topY, topW, topH);
-        toolbarY=CGRectGetMaxY(_reViewF)+magin;
-    }
-    else {
-        CGFloat topX=0;
-        CGFloat topY=0;
-        CGFloat topW=screenW;
-        topH=CGRectGetMaxY(_originalViewF);
-        _topViewF=CGRectMake(topX, topY, topW, topH);
-        toolbarY=CGRectGetMaxY(_topViewF)+magin;
-        
-    }
-    
-    
-    
-    CGFloat toolbarX=0;
-    CGFloat toolbarW=screenW;
-    CGFloat toolbarH=35;
-    _toolbarViewF=CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
-    
-    _cellHeght=CGRectGetMaxY(_toolbarViewF);
 }
 @end
