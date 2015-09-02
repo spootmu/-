@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#define nameFont  [UIFont systemFontOfSize:14]
-#define contextFont  [UIFont systemFontOfSize:13]
-#define timeFont  [UIFont systemFontOfSize:10]
-#define sourceFont  [UIFont systemFontOfSize:10]
+
 @class WeiBoData;
 
 @interface WeiBoFrame : NSObject
@@ -29,6 +26,12 @@
 @property(nonatomic,assign,readonly) CGRect timeLabelF;
 @property(nonatomic,assign,readonly) CGRect sourceViewF;
 @property(nonatomic,assign,readonly) CGRect contextViewF;
+//@property(assign,nonatomic,readonly) CGRect repostViewF;
+@property(nonatomic,assign,readonly) CGRect reViewF;
+@property(nonatomic,assign,readonly) CGRect reNameF;
+@property(assign,nonatomic,readonly) CGRect reContextF;
 @property(nonatomic,assign,readonly) CGRect toolbarViewF;
 @property(nonatomic,assign,readonly) CGFloat cellHeght;
+
+@property(assign,nonatomic,readonly)CGRect originalViewF;
 @end

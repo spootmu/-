@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self setupBarButton];
     [self setupTitleButton];
     [self loadWeiBoData];
@@ -97,7 +98,7 @@
     NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
     
     parameters[@"access_token"]=[Tools ReadAccount].access_token;
-    parameters[@"count"]=@(100);
+    parameters[@"count"]=@(30);
     
     WeiBoFrame *firstData=[self.WeiboDataFrame firstObject];
     if(firstData)

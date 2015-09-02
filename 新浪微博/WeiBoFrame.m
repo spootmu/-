@@ -61,14 +61,58 @@
     _contextViewF=(CGRect){{contextX,contextY},contextSize};
     
     
-    CGFloat topX=0;
-    CGFloat topY=0;
-    CGFloat topW=screenW;
-    CGFloat topH=CGRectGetMaxY(_contextViewF)+magin;
-    _topViewF=CGRectMake(topX, topY, topW, topH);
+    CGFloat originalViewX=0;
+    CGFloat originalViewY=0;
+    CGFloat originalViewW=screenW;
+    CGFloat originalViewH=CGRectGetMaxY(_contextViewF)+magin;
+    _originalViewF=CGRectMake(originalViewX, originalViewY, originalViewW, originalViewH);
+    
+    
+    
+#pragma repost
+    CGFloat toolbarY=0;
+    CGFloat topH=0;
+    if(_data.retweeted_status)
+    {
+        _data.retweeted_status.user.name=[NSString stringWithFormat:@"@%@",_data.retweeted_status.user.name];
+        CGFloat renameX=magin;
+        CGFloat renameY=magin;
+        CGSize renameMaxSize=contextMaxSize;
+        CGSize renameSize=[_data.retweeted_status.user.name boundingRectWithSize:renameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+        _reNameF=(CGRect){{renameX,renameY},renameSize};
+        
+        CGFloat reContextX=magin;
+        CGFloat reContextY=CGRectGetMaxY(_reNameF)+magin;;
+        CGSize  reContextMaxSize=contextMaxSize;
+        CGSize reContextSize=[_data.retweeted_status.text boundingRectWithSize:reContextMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contextAttributes context:nil].size;
+        _reContextF=(CGRect){{reContextX,reContextY},reContextSize};
+        
+        CGFloat reViewX=0;
+        CGFloat reViewY=CGRectGetMaxY(_contextViewF)+magin;
+        CGFloat reViewW=screenW;
+        CGFloat reViewH=CGRectGetMaxY(_reContextF)+magin;;
+        _reViewF=CGRectMake(reViewX, reViewY, reViewW, reViewH);
+        
+        CGFloat topX=0;
+        CGFloat topY=0;
+        CGFloat topW=screenW;
+        topH=CGRectGetMaxY(_originalViewF)+CGRectGetMaxY(_reViewF);
+        _topViewF=CGRectMake(topX, topY, topW, topH);
+        toolbarY=CGRectGetMaxY(_reViewF)+magin;
+    }
+    else {
+        CGFloat topX=0;
+        CGFloat topY=0;
+        CGFloat topW=screenW;
+        topH=CGRectGetMaxY(_originalViewF);
+        _topViewF=CGRectMake(topX, topY, topW, topH);
+        toolbarY=CGRectGetMaxY(_topViewF)+magin;
+        
+    }
+    
+    
     
     CGFloat toolbarX=0;
-    CGFloat toolbarY=CGRectGetMaxY(_contextViewF)+magin;
     CGFloat toolbarW=screenW;
     CGFloat toolbarH=35;
     _toolbarViewF=CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);

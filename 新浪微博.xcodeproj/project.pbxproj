@@ -14,6 +14,10 @@
 		1868546A1B8DB59F009C9FEB /* WeiBoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854691B8DB59F009C9FEB /* WeiBoCell.m */; };
 		1868546D1B8DBA03009C9FEB /* WeiBoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868546C1B8DBA03009C9FEB /* WeiBoFrame.m */; };
 		186854701B9043B7009C9FEB /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868546F1B9043B7009C9FEB /* NSDate+Extension.m */; };
+		186854731B945512009C9FEB /* WeiBoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854721B945512009C9FEB /* WeiBoTopView.m */; };
+		186854761B945521009C9FEB /* WeiBoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854751B945521009C9FEB /* WeiBoToolBar.m */; };
+		1868547A1B9456C9009C9FEB /* WeiBoRepostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186854791B9456C9009C9FEB /* WeiBoRepostView.m */; };
+		1868547D1B9456E6009C9FEB /* WeiBoOriginalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868547C1B9456E6009C9FEB /* WeiBoOriginalView.m */; };
 		18AC21FF1B7B2CC70017B279 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC21FE1B7B2CC70017B279 /* main.m */; };
 		18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC22011B7B2CC70017B279 /* AppDelegate.m */; };
 		18AC220A1B7B2CC70017B279 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AC22091B7B2CC70017B279 /* Images.xcassets */; };
@@ -68,6 +72,14 @@
 		1868546C1B8DBA03009C9FEB /* WeiBoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoFrame.m; sourceTree = "<group>"; };
 		1868546E1B9043B7009C9FEB /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		1868546F1B9043B7009C9FEB /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		186854711B945512009C9FEB /* WeiBoTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoTopView.h; sourceTree = "<group>"; };
+		186854721B945512009C9FEB /* WeiBoTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoTopView.m; sourceTree = "<group>"; };
+		186854741B945521009C9FEB /* WeiBoToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoToolBar.h; sourceTree = "<group>"; };
+		186854751B945521009C9FEB /* WeiBoToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoToolBar.m; sourceTree = "<group>"; };
+		186854781B9456C9009C9FEB /* WeiBoRepostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoRepostView.h; sourceTree = "<group>"; };
+		186854791B9456C9009C9FEB /* WeiBoRepostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoRepostView.m; sourceTree = "<group>"; };
+		1868547B1B9456E6009C9FEB /* WeiBoOriginalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiBoOriginalView.h; sourceTree = "<group>"; };
+		1868547C1B9456E6009C9FEB /* WeiBoOriginalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiBoOriginalView.m; sourceTree = "<group>"; };
 		18AC21F91B7B2CC70017B279 /* 新浪微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AC21FD1B7B2CC70017B279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AC21FE1B7B2CC70017B279 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -310,6 +322,14 @@
 				18AE601B1B81D3C100373E96 /* PopView.m */,
 				186854681B8DB59F009C9FEB /* WeiBoCell.h */,
 				186854691B8DB59F009C9FEB /* WeiBoCell.m */,
+				186854711B945512009C9FEB /* WeiBoTopView.h */,
+				186854721B945512009C9FEB /* WeiBoTopView.m */,
+				186854741B945521009C9FEB /* WeiBoToolBar.h */,
+				186854751B945521009C9FEB /* WeiBoToolBar.m */,
+				186854781B9456C9009C9FEB /* WeiBoRepostView.h */,
+				186854791B9456C9009C9FEB /* WeiBoRepostView.m */,
+				1868547B1B9456E6009C9FEB /* WeiBoOriginalView.h */,
+				1868547C1B9456E6009C9FEB /* WeiBoOriginalView.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -634,10 +654,14 @@
 				18AC229D1B7C7D480017B279 /* HomeTableViewController.m in Sources */,
 				185827311B81926000700907 /* TitleButton.m in Sources */,
 				18AE601C1B81D3C100373E96 /* PopView.m in Sources */,
+				186854731B945512009C9FEB /* WeiBoTopView.m in Sources */,
 				18CBDB0E1B86C87B00687CAC /* OAuthData.m in Sources */,
 				18CBDB1D1B8AF92900687CAC /* user.m in Sources */,
+				1868547D1B9456E6009C9FEB /* WeiBoOriginalView.m in Sources */,
 				18AC22021B7B2CC70017B279 /* AppDelegate.m in Sources */,
 				1868546D1B8DBA03009C9FEB /* WeiBoFrame.m in Sources */,
+				186854761B945521009C9FEB /* WeiBoToolBar.m in Sources */,
+				1868547A1B9456C9009C9FEB /* WeiBoRepostView.m in Sources */,
 				18AC229A1B7C7D1C0017B279 /* SettingTableViewController.m in Sources */,
 				18CBDB161B8705AA00687CAC /* NSArray+Log.m in Sources */,
 				18AE60A21B83133A00373E96 /* NewFeaturesVC.m in Sources */,

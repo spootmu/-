@@ -40,6 +40,19 @@
 @property(nonatomic,strong) user *user;
 @property(nonatomic,strong) NSArray * pic_urls;
 
+/**
+ *  转发
+ */
+@property(nonatomic,assign) NSNumber *  reposts_count;
+/**
+ *  评论
+ */
+@property(nonatomic,assign) NSNumber * comments_count;
+/**
+ *  表态
+ */
+@property(nonatomic,assign) NSNumber * attitudes_count;
+
 @property(nonatomic,copy) NSString * created_at;
 @property(nonatomic,assign) NSNumber  *mid;
 @property(nonatomic,copy) NSString * idstr;
@@ -47,9 +60,7 @@
 @property(nonatomic,copy) NSString * source;
 @property(nonatomic,assign) BOOL * favorited;
 @property(nonatomic,assign) BOOL * truncated;
-@property(nonatomic,assign) NSNumber * reposts_count;
-@property(nonatomic,assign) NSNumber * comments_count;
-@property(nonatomic,assign) NSNumber * attitudes_count;
+
 
 
 @end

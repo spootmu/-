@@ -134,7 +134,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
-            timestampString = "462445285.995084"
+            timestampString = "462788038.838067"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "-loadWeiBoData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
+            timestampString = "462788038.838067"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-loadWeiBoData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
+            timestampString = "462788038.838067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -150,43 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
-            timestampString = "462445285.995084"
+            timestampString = "462788038.838067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-loadWeiBoData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
-            timestampString = "462445285.995084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-loadWeiBoData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
-            timestampString = "462335447.982208"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-loadMoreData"
             landmarkType = "5">
          </BreakpointContent>
@@ -214,11 +214,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
-            timestampString = "462335447.982208"
+            timestampString = "462788038.838067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-loadWeiBoData"
             landmarkType = "5">
          </BreakpointContent>
@@ -236,6 +236,22 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "-created_at"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x65b0;&#x6d6a;&#x5fae;&#x535a;/HomeTableViewController.m"
+            timestampString = "462792213.060831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-loadWeiBoData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
