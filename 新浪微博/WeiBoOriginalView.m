@@ -63,6 +63,9 @@
         WeiBoPhotos *wbOriginalImgsView=[[WeiBoPhotos alloc]init];
         [self addSubview:wbOriginalImgsView];
         self.wbOriginalImgsView=wbOriginalImgsView;
+        
+        
+        self.userInteractionEnabled=YES;
     }
     return self;
 }

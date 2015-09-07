@@ -8,6 +8,7 @@
 
 #import "WeiBoPhoto.h"
 #import "WeiBoImg.h"
+#import "MJPhotoBrowser.h"
 @interface WeiBoPhoto()
 @property(nonatomic,weak) UIImageView *gifView;
 @end
@@ -16,11 +17,20 @@
 {
     if(self=[super initWithFrame:frame])
     {
+        self.userInteractionEnabled=YES;
         self.contentMode=UIViewContentModeScaleAspectFill;
         self.clipsToBounds=YES;
         [self SetupGif];
+
+        UITapGestureRecognizer *tapClick=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(photoClick:)];
+        [self addGestureRecognizer:tapClick];
     }
     return self;
+}
+
+-(void)photoClick:(WeiBoPhoto*)photo
+{
+    
 }
 
 -(void)SetupGif

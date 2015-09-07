@@ -38,6 +38,8 @@
         WeiBoRepostView *repostView=[[WeiBoRepostView alloc]init];
         [self addSubview:repostView];
         self.repostView=repostView;
+        
+        self.userInteractionEnabled=YES;
     }
     return self;
 }

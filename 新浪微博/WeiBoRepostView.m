@@ -39,6 +39,8 @@
         WeiBoPhotos *wbRepostImgsView=[[WeiBoPhotos alloc]init];
         [self addSubview:wbRepostImgsView];
         self.wbRepostImgsView=wbRepostImgsView;
+        
+        self.userInteractionEnabled=YES;
     }
     return self;
 }
