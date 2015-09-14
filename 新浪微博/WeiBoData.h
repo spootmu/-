@@ -53,6 +53,8 @@
  */
 @property(nonatomic,assign) NSNumber * attitudes_count;
 
+@property(nonatomic,copy) NSString * original_pic;
+
 @property(nonatomic,copy) NSString * created_at;
 @property(nonatomic,assign) NSNumber  *mid;
 @property(nonatomic,copy) NSString * idstr;

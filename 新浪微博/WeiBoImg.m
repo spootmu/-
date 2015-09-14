@@ -9,5 +9,8 @@
 #import "WeiBoImg.h"
 
 @implementation WeiBoImg
-
+-(NSString *)bmiddle_pic
+{
+    return [self.thumbnail_pic stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+}
 @end

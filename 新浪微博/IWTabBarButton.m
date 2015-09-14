@@ -8,6 +8,11 @@
 
 #import "IWTabBarButton.h"
 #define btnPer 0.6
+
+@interface IWTabBarButton()
+@property(weak,nonatomic)UIButton *btnBadge;
+@end
+
 @implementation IWTabBarButton
 
 -(void)setItem:(UITabBarItem *)item
@@ -18,7 +23,40 @@
     [self setImage:item.image forState:UIControlStateNormal];
     // 设置选中状态的图片
     [self setImage:item.selectedImage forState:UIControlStateSelected];
+    
+    /**
+     *  kvo
+     */
+    [_item addObserver:self forKeyPath:@"badgeValue" options:0 context:nil];
 }
+
+/**
+ *  kov
+ *当监听对象的属性改变，调用这个方法
+ */
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    Log(@"kvo");
+    
+    NSString *val=self.item.badgeValue;
+    
+    if(val.integerValue)
+    {
+        self.btnBadge.hidden=NO;
+    }
+    
+    if(val.integerValue==0)
+    {
+        self.btnBadge.hidden=YES;
+    }
+    
+    if(val.integerValue>99)
+    {
+        val=@"n";
+    }
+    [self.btnBadge setTitle:self.item.badgeValue forState:UIControlStateNormal];
+}
+
 -(CGRect)imageRectForContentRect:(CGRect)contentRect
 {
     return CGRectMake(0, 0, contentRect.size.width, contentRect.size.height*btnPer);
@@ -38,9 +76,31 @@
         self.titleLabel.font=[UIFont systemFontOfSize:11];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+        
+        [self setupBadge];
+        
     }
     return self;
 }
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.btnBadge.x=self.w-self.btnBadge.w-5;
+    self.btnBadge.y=0;
+}
+
+-(void)setupBadge
+{
+    UIButton *btnBadge=[[UIButton alloc]init];
+    [btnBadge setBackgroundImage:[UIImage imageNamed:@"main_badge"] forState:UIControlStateNormal];
+    btnBadge.size=btnBadge.currentBackgroundImage.size;
+    btnBadge.titleLabel.font=[UIFont systemFontOfSize:10];
+    [self addSubview:btnBadge];
+    self.btnBadge=btnBadge;
+    btnBadge.hidden=YES;
+}
+
 -(void)setHighlighted:(BOOL)highlighted
 {
     

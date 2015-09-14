@@ -10,6 +10,8 @@
 #import "WeiBoData.h"
 #import "WeiBoImg.h"
 #import "WeiBoPhoto.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 @interface WeiBoPhotos()
 @property(strong,nonatomic)NSMutableArray *imgArr;
 @end
@@ -55,6 +57,25 @@
     }
 }
 
+-(void)photoClick:(UITapGestureRecognizer*)photo
+{
+    Log(@"%zd",photo.view.tag);
+    MJPhotoBrowser *browser=[[MJPhotoBrowser alloc]init];
+    
+    NSMutableArray *imgArr=[NSMutableArray array];
+    for (int i=0; i<self.photos.count; i++) {
+        MJPhoto *img=[[MJPhoto alloc]init];
+        WeiBoImg *imgUrl=self.photos[i];
+        img.url=[NSURL URLWithString:imgUrl.bmiddle_pic];
+//        self.subviews[i];
+        img.srcImageView=(UIImageView*)photo.view;
+        [imgArr addObject:img];
+    }
+    browser.photos=imgArr;
+    browser.currentPhotoIndex=photo.view.tag;
+    [browser show];
+}
+
 -(void)layoutSubviews
 {
     NSInteger count=self.photos.count;
@@ -68,6 +89,12 @@
         CGFloat imgX=col*(photoW+photoPadding);
         CGFloat imgY=row*(photoH+photoPadding);
         imgview.frame=(CGRect){{imgX,imgY},{photoW,photoH}};
+        imgview.tag=i;
+        //监听点击
+        UITapGestureRecognizer *tapClick=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(photoClick:)];
+        [imgview addGestureRecognizer:tapClick];
+        
+        
     }
 }
 @end

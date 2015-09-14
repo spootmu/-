@@ -13,9 +13,10 @@
 #import "SettingTableViewController.h"
 #import "IWTabBar.h"
 #import "IWNavBar.h"
+#import "Tools.h"
 @interface MainTabbarControl()<IWTabBarDelegate>
 @property(nonatomic,weak) IWTabBar *cust_tabbar;
-
+@property(weak,nonatomic)  HomeTableViewController *home;
 @end
 @implementation MainTabbarControl
 
@@ -41,6 +42,31 @@
     self.cust_tabbar=cust_tabbar;
     cust_tabbar.delegate=self;
     Log(@"%@",self.tabBar.subviews);
+    
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(unReadCount) userInfo:nil repeats:YES];
+}
+
+/**
+ *  未读消息数量
+ */
+-(void)unReadCount
+{
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters=[NSMutableDictionary dictionary];
+    parameters[@"access_token"]=[Tools ReadAccount].access_token;
+    parameters[@"uid"]=[Tools ReadAccount].uid;
+    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        Log(@"%@",responseObject[@"status"]);
+        
+        //设置按钮提醒数字
+        self.home.tabBarItem.badgeValue=[NSString stringWithFormat:@"%@",responseObject[@"status"]];
+        //设置app提醒数字
+        [UIApplication sharedApplication].applicationIconBadgeNumber=self.home.tabBarItem.badgeValue.integerValue;
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        Log(@"%@",error);
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -53,18 +79,18 @@
         }
     }
 }
+
 -(void)IWTabBar:(IWTabBar *)tabbar selectButtonTagFrom:(NSInteger)from selectButtonTagTo:(NSInteger)to
 {
     Log(@"%ld---%ld",(long)from,to);
     
     self.selectedIndex=to;
-}
--(void)setupTabBarButton
-{
-//    [self.cust_tabbar addTabBarButton:@"首页" nomalImg:[UIImage imageNamed:@"tabbar_home_os7"] selectImg:[UIImage imageNamed:@"tabbar_home_selected_os7"]];
-//    [self.cust_tabbar addTabBarButton:@"消息" nomalImg:[UIImage imageNamed:@"tabbar_message_center_os7"] selectImg:[UIImage imageNamed:@"tabbar_message_center_selected_os7"]];
-//    [self.cust_tabbar addTabBarButton:@"广场" nomalImg:[UIImage imageNamed:@"tabbar_discover_os7"] selectImg:[UIImage imageNamed:@"tabbar_discover_selected_os7"]];
-//    [self.cust_tabbar addTabBarButton:@"我" nomalImg:[UIImage imageNamed:@"tabbar_profile_os7"] selectImg:[UIImage imageNamed:@"tabbar_profile_selected_os7"]];
+    
+    //刷新数据
+    if(to==0 && from==0)
+    {
+        [self.home tabRefreshClick];
+    }
 }
 
 - (void)addOneChildVc:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName{
@@ -81,6 +107,7 @@
 {
     HomeTableViewController *home=[[HomeTableViewController alloc]init];
     [self addOneChildVc:home title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
+    self.home=home;
     
     MsgTableViewController *msg=[[MsgTableViewController alloc]init];
 

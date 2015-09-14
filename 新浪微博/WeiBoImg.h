@@ -10,4 +10,5 @@
 
 @interface WeiBoImg : NSObject
 @property (nonatomic,copy) NSString *thumbnail_pic;
+@property (nonatomic,copy,readonly) NSString *bmiddle_pic;
 @end

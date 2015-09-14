@@ -41,6 +41,8 @@
     [self loadWeiBoData];
     [self setupRefresh];
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 10, 0);
+    
+    
 }
 
 
@@ -52,8 +54,19 @@
     self.tableView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
+/**
+ *  More
+ */
 -(void)loadMoreData
 {
+    /**
+     *  重置badge
+     */
+    self.tabBarItem.badgeValue=@"0";
+    
+    //设置app提醒数字
+    [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+    
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     
     WeiBoFrame *lastData=[self.WeiboDataFrame lastObject];
@@ -129,10 +142,49 @@
 //        NSLog(@"%@",responseObject[@"statuses"]);
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
+        
+        //提示
+        [self showStatusCount:arrFrame.count];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        Log(@"%@",error);
         [self.tableView.header endRefreshing];
     }];
+}
+
+-(void)showStatusCount:(NSInteger) count
+{
+    UILabel *lblInfo=[[UILabel alloc]init];
+    [lblInfo setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]]];
+    lblInfo.w=[UIScreen mainScreen].bounds.size.width;
+    lblInfo.h=35;
+    lblInfo.x=0;
+    lblInfo.y=64-lblInfo.h;
+    lblInfo.textAlignment=NSTextAlignmentCenter;
+    lblInfo.textColor=[UIColor whiteColor];
+    lblInfo.alpha=0;
+    if(count>0)
+    {
+        lblInfo.text=[NSString stringWithFormat:@"更新了%zd条新消息",count];
+    }
+    else
+    {
+        lblInfo.text=@"暂无新消息";
+    }
+    [self.navigationController.view insertSubview:lblInfo belowSubview:self.navigationController.navigationBar];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        lblInfo.alpha=1;
+        lblInfo.transform=CGAffineTransformMakeTranslation(0, lblInfo.h);
+    } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionCurveLinear animations:^{
+                lblInfo.transform=CGAffineTransformIdentity;
+                lblInfo.alpha=0;
+            } completion:^(BOOL finished) {
+                [lblInfo removeFromSuperview];
+            }];
+        }];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -221,48 +273,10 @@
     return cellFrame.cellHeght;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tabRefreshClick
+{
+    if(self.tabBarItem.badgeValue.integerValue>0)
+       [self.tableView.header beginRefreshing];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
