@@ -20,20 +20,26 @@
         [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
     }
     
-    //设置右边按钮主题
+
     UIBarButtonItem *barBtn=[UIBarButtonItem appearance];
     NSMutableDictionary *dic=[NSMutableDictionary dictionary];
     dic[NSForegroundColorAttributeName]=[UIColor orangeColor];
     dic[NSFontAttributeName]=[UIFont systemFontOfSize:14.0];
     
+    
+    
     NSMutableDictionary *dic2=[NSMutableDictionary dictionaryWithDictionary:dic];
-    dic2[NSForegroundColorAttributeName]=[UIColor grayColor];
+    dic2[NSForegroundColorAttributeName]=[UIColor purpleColor];
+    
+    NSMutableDictionary *dic3=[NSMutableDictionary dictionaryWithDictionary:dic2 ];
+    dic3[NSForegroundColorAttributeName]=[UIColor grayColor];
+    
     
     [barBtn setTitleTextAttributes:dic forState:UIControlStateNormal];
     [barBtn setTitleTextAttributes:dic2 forState:UIControlStateHighlighted];
+    [barBtn setTitleTextAttributes:dic3 forState:UIControlStateDisabled];
     
     
-
 }
 
 -(void)back

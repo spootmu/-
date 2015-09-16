@@ -14,6 +14,7 @@
 #import "IWTabBar.h"
 #import "IWNavBar.h"
 #import "Tools.h"
+#import "SendWeiBoView.h"
 @interface MainTabbarControl()<IWTabBarDelegate>
 @property(nonatomic,weak) IWTabBar *cust_tabbar;
 @property(weak,nonatomic)  HomeTableViewController *home;
@@ -44,6 +45,16 @@
     Log(@"%@",self.tabBar.subviews);
     
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(unReadCount) userInfo:nil repeats:YES];
+}
+
+
+-(void)IWTabBarDidClickPlusBtn:(IWTabBar *)tabbar
+{
+    SendWeiBoView *sendView=[[SendWeiBoView alloc]init];
+    
+    IWNavBar *nav=[[IWNavBar alloc]initWithRootViewController:sendView];
+    
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 /**

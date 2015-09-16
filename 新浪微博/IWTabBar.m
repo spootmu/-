@@ -62,18 +62,8 @@
     btn.selected=YES;
     self.btnSelNow=btn;
 }
--(void)setupCenterBtn
-{
-     UIButton *btnCenter=[[UIButton alloc]init];
-    [btnCenter setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
-    [btnCenter setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
-    
-    [btnCenter setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
-    [btnCenter setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
-    
-    [self addSubview:btnCenter];
-    self.btnCenter=btnCenter;
-}
+
+
 
 -(void)setupCenterBtnFrame
 {
@@ -84,7 +74,16 @@
     self.btnCenter.cy=self.h*0.5;
 }
 
-
+/**
+ *  发送微博
+ */
+-(void)SendWeiBo
+{
+    if([self.delegate respondsToSelector:@selector(IWTabBarDidClickPlusBtn:)])
+    {
+        [self.delegate IWTabBarDidClickPlusBtn:self];
+    }
+}
 
 -(UIButton *)btnCenter
 {
@@ -101,6 +100,9 @@
         // 1.4.添加
         [self addSubview:btnCenter];
         _btnCenter = btnCenter;
+        
+        //中间按钮点击事件
+        [btnCenter addTarget:self action:@selector(SendWeiBo) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return _btnCenter;
@@ -121,11 +123,6 @@
         {
             btn.x=i*btn.w;
         }
-        
-//        if(i==0)
-//        {
-//            [self btnOther_Click:btn];
-//        }
     }
 }
 

@@ -14,6 +14,7 @@
 
 -(void)IWTabBar:(IWTabBar*) tabbar selectButtonTagFrom:(NSInteger)from selectButtonTagTo:(NSInteger)to;
 
+-(void)IWTabBarDidClickPlusBtn:(IWTabBar *)tabbar;
 @end
 
 @interface IWTabBar : UIView

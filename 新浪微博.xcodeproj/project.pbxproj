@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184A29261BA8125C00AA06EE /* SendWeiBoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A29251BA8125C00AA06EE /* SendWeiBoView.m */; };
+		184A292A1BA8205B00AA06EE /* SendTV.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A29291BA8205B00AA06EE /* SendTV.m */; };
 		185827281B8170CA00700907 /* IWNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185827271B8170CA00700907 /* IWNavBar.m */; };
 		1858272E1B818DA600700907 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858272D1B818DA600700907 /* UIBarButtonItem+Extension.m */; };
 		185827311B81926000700907 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 185827301B81926000700907 /* TitleButton.m */; };
@@ -68,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184A29241BA8125C00AA06EE /* SendWeiBoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendWeiBoView.h; sourceTree = "<group>"; };
+		184A29251BA8125C00AA06EE /* SendWeiBoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendWeiBoView.m; sourceTree = "<group>"; };
+		184A29281BA8205A00AA06EE /* SendTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendTV.h; sourceTree = "<group>"; };
+		184A29291BA8205B00AA06EE /* SendTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendTV.m; sourceTree = "<group>"; };
 		185827261B8170CA00700907 /* IWNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWNavBar.h; sourceTree = "<group>"; };
 		185827271B8170CA00700907 /* IWNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWNavBar.m; sourceTree = "<group>"; };
 		1858272C1B818DA600700907 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
@@ -194,6 +200,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		184A29231BA8123D00AA06EE /* NewWeiBo */ = {
+			isa = PBXGroup;
+			children = (
+				184A29241BA8125C00AA06EE /* SendWeiBoView.h */,
+				184A29251BA8125C00AA06EE /* SendWeiBoView.m */,
+			);
+			name = NewWeiBo;
+			sourceTree = "<group>";
+		};
+		184A29271BA8203500AA06EE /* NewWeiBo */ = {
+			isa = PBXGroup;
+			children = (
+				184A29281BA8205A00AA06EE /* SendTV.h */,
+				184A29291BA8205B00AA06EE /* SendTV.m */,
+			);
+			name = NewWeiBo;
+			sourceTree = "<group>";
+		};
 		186854871B96FE94009C9FEB /* MJPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +306,7 @@
 		18AC228F1B7C485D0017B279 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				184A29231BA8123D00AA06EE /* NewWeiBo */,
 				18AE609F1B8312B600373E96 /* NewFeatures */,
 				18AC22A21B7C7E850017B279 /* MainTab */,
 				18AC22A11B7C7E5D0017B279 /* Setting */,
@@ -341,6 +366,7 @@
 		18AC22A31B7C7EB00017B279 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				184A29271BA8203500AA06EE /* NewWeiBo */,
 				18AC22AD1B7C7F050017B279 /* MainTab */,
 				18AC22A81B7C7ECC0017B279 /* Setting */,
 				18AC22A71B7C7EC70017B279 /* Zone */,
@@ -699,6 +725,7 @@
 				18CBDB121B86D70C00687CAC /* Tools.m in Sources */,
 				18AC22B81B7C8C970017B279 /* UIView+Extension.m in Sources */,
 				186854991B96FE94009C9FEB /* MJPhotoBrowser.m in Sources */,
+				184A29261BA8125C00AA06EE /* SendWeiBoView.m in Sources */,
 				18AE60191B81CBD400373E96 /* UIImage+Extension.m in Sources */,
 				18AC22B41B7C86840017B279 /* IWTabBar.m in Sources */,
 				18AC228D1B7C483D0017B279 /* MainTabbarControl.m in Sources */,
@@ -713,6 +740,7 @@
 				18CBDAEB1B84807900687CAC /* MBProgressHUD.m in Sources */,
 				18CBDAE91B84807900687CAC /* MBProgressHUD+NJ.m in Sources */,
 				18CBDADC1B847A4A00687CAC /* OAuthVC.m in Sources */,
+				184A292A1BA8205B00AA06EE /* SendTV.m in Sources */,
 				18AC229D1B7C7D480017B279 /* HomeTableViewController.m in Sources */,
 				185827311B81926000700907 /* TitleButton.m in Sources */,
 				1868549D1B96FE94009C9FEB /* MJPhotoView.m in Sources */,
