@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180691A21BA952E5008BC48D /* SendToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 180691A11BA952E5008BC48D /* SendToolBar.m */; };
+		180691A51BA96C64008BC48D /* SendImgContant.m in Sources */ = {isa = PBXBuildFile; fileRef = 180691A41BA96C64008BC48D /* SendImgContant.m */; };
 		184A29261BA8125C00AA06EE /* SendWeiBoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A29251BA8125C00AA06EE /* SendWeiBoView.m */; };
 		184A292A1BA8205B00AA06EE /* SendTV.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A29291BA8205B00AA06EE /* SendTV.m */; };
 		185827281B8170CA00700907 /* IWNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185827271B8170CA00700907 /* IWNavBar.m */; };
@@ -70,6 +72,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180691A01BA952E5008BC48D /* SendToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendToolBar.h; sourceTree = "<group>"; };
+		180691A11BA952E5008BC48D /* SendToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendToolBar.m; sourceTree = "<group>"; };
+		180691A31BA96C64008BC48D /* SendImgContant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendImgContant.h; sourceTree = "<group>"; };
+		180691A41BA96C64008BC48D /* SendImgContant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendImgContant.m; sourceTree = "<group>"; };
 		184A29241BA8125C00AA06EE /* SendWeiBoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendWeiBoView.h; sourceTree = "<group>"; };
 		184A29251BA8125C00AA06EE /* SendWeiBoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendWeiBoView.m; sourceTree = "<group>"; };
 		184A29281BA8205A00AA06EE /* SendTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendTV.h; sourceTree = "<group>"; };
@@ -214,6 +220,10 @@
 			children = (
 				184A29281BA8205A00AA06EE /* SendTV.h */,
 				184A29291BA8205B00AA06EE /* SendTV.m */,
+				180691A01BA952E5008BC48D /* SendToolBar.h */,
+				180691A11BA952E5008BC48D /* SendToolBar.m */,
+				180691A31BA96C64008BC48D /* SendImgContant.h */,
+				180691A41BA96C64008BC48D /* SendImgContant.m */,
 			);
 			name = NewWeiBo;
 			sourceTree = "<group>";
@@ -722,9 +732,11 @@
 			files = (
 				186854701B9043B7009C9FEB /* NSDate+Extension.m in Sources */,
 				186854971B96FE94009C9FEB /* MJPhoto.m in Sources */,
+				180691A51BA96C64008BC48D /* SendImgContant.m in Sources */,
 				18CBDB121B86D70C00687CAC /* Tools.m in Sources */,
 				18AC22B81B7C8C970017B279 /* UIView+Extension.m in Sources */,
 				186854991B96FE94009C9FEB /* MJPhotoBrowser.m in Sources */,
+				180691A21BA952E5008BC48D /* SendToolBar.m in Sources */,
 				184A29261BA8125C00AA06EE /* SendWeiBoView.m in Sources */,
 				18AE60191B81CBD400373E96 /* UIImage+Extension.m in Sources */,
 				18AC22B41B7C86840017B279 /* IWTabBar.m in Sources */,

@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface SendTV : UITextView
-
+/**
+ *  设置提示文本
+ */
+@property (nonatomic,copy) NSString *placeholder;
+/**
+ *  提示文本颜色
+ */
+@property(nonatomic,strong) UIColor *placeholdercolor;
 @end
